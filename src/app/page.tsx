@@ -47,7 +47,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.7 }}
-          transition={{ delay: 0.9, duration: 2.8 }}
+          transition={{ delay: 2, duration: 8 }}
         >
           <Image
             src="/curve-line.svg"
