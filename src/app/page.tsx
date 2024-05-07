@@ -6,10 +6,13 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { IconArrowRight } from "@tabler/icons-react";
+import { useRouter } from "next/navigation";
 
 const sacramento = Sacramento({ weight: "400", subsets: ["latin"] });
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div>
       <div className="bg-background text-center font-bold text-5xl mt-6 font-mono">
@@ -18,7 +21,7 @@ export default function Home() {
       <div className={clsx(sacramento.className, "text-center text-4xl")}>
         By Ayman
       </div>
-     
+
       <div className="relative p-8 min-h-[90vh]">
         <div className="max-w-[40vw] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <motion.p
@@ -81,7 +84,7 @@ export default function Home() {
             size={"icon"}
             variant={"outline"}
             className="absolute top-[70%] left-[30%]"
-            onClick={() => console.log("Clicked")}
+            onClick={() => router.push("/auth/signup")}
           >
             <IconArrowRight stroke={3} size={50} />
           </Button>
