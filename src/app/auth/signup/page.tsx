@@ -15,12 +15,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { signupSchema } from "@/lib/types";
 import type { TSignUpSchema } from "@/lib/types";
-import {
-  IconEye,
-  IconEyeOff,
-} from "@tabler/icons-react";
+import { IconEye, IconEyeOff } from "@tabler/icons-react";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const router = useRouter();
+
   const form = useForm<TSignUpSchema>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
@@ -51,6 +51,8 @@ export default function Page() {
     console.log(data);
 
     localStorage.setItem("user", JSON.stringify(data));
+
+    router.push("/auth/signin");
 
     return;
   };
